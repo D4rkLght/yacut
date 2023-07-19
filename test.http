@@ -1,0 +1,6 @@
+POST http://127.0.0.1:5000/api/id/
+content-type: application/json
+
+{
+    "url": "https://github.com/python/peps/blob/main/pep-3150.txdвt"
+}
