@@ -15,19 +15,13 @@ def create_short_link():
         raise InvalidAPIUsage('Отсутствует тело запроса')
     if 'url' not in data:
         raise InvalidAPIUsage('"url" является обязательным полем!')
-
-    if ('custom_id' not in data or
-        data.get('custom_id') == '' or
-        data.get('custom_id') is None):
+    if 'custom_id' not in data or not data.get('custom_id'):
         data['custom_id'] = get_unique_short_id()
-    
-    if URLMap.query.filter_by(short=data['custom_id']).first() is not None:
+    if URLMap.query.filter_by(short=data['custom_id']).first():
         custom_id = data['custom_id']
         raise InvalidAPIUsage(f'Имя "{custom_id}" уже занято.')
-    
     if not re.match(r'^[a-zA-Z\d]{0,9}$', data.get('custom_id')):
         raise InvalidAPIUsage('Указано недопустимое имя для короткой ссылки', 400)
-
     urlmap = URLMap()
     urlmap.from_dict(data)
     db.session.add(urlmap)
@@ -38,6 +32,6 @@ def create_short_link():
 @app.route('/api/id/<string:short_id>/', methods=['GET'])
 def get_short_link(short_id):
     urlmap = URLMap.query.filter_by(short=short_id).first()
-    if urlmap is None:
+    if not urlmap:
         raise InvalidAPIUsage('Указанный id не найден', 404)
     return jsonify({'url': urlmap.original}), 200
