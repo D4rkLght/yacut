@@ -26,7 +26,7 @@ def create_short_link():
     urlmap.from_dict(data)
     db.session.add(urlmap)
     db.session.commit()
-    return jsonify(urlmap.to_dict()), 201 
+    return jsonify(urlmap.to_dict()), 201
 
 
 @app.route('/api/id/<string:short_id>/', methods=['GET'])
