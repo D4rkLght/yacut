@@ -1,16 +1,16 @@
 import string
-
 from random import sample
+
 from flask import flash, redirect, render_template
 
-from . import app, db
+from . import LENGHT_SHORT_LINK, app, db
 from .forms import URLMapForm
 from .models import URLMap
 
 
 def get_unique_short_id():
     letters_and_digits = string.ascii_letters + string.digits
-    short_link = ''.join(sample(letters_and_digits, 6))
+    short_link = ''.join(sample(letters_and_digits, LENGHT_SHORT_LINK))
     if URLMap.query.filter_by(short=short_link).first():
         return get_unique_short_id()
     return short_link

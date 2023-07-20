@@ -2,10 +2,10 @@ import re
 
 from flask import jsonify, request
 
-from . import app, db
+from . import ONLY_DIGITS_AND_LETTERS, app, db
+from .error_handlers import InvalidAPIUsage
 from .models import URLMap
 from .views import get_unique_short_id
-from .error_handlers import InvalidAPIUsage
 
 
 @app.route('/api/id/', methods=['POST'])
@@ -20,7 +20,7 @@ def create_short_link():
     if URLMap.query.filter_by(short=data['custom_id']).first():
         custom_id = data['custom_id']
         raise InvalidAPIUsage(f'Имя "{custom_id}" уже занято.')
-    if not re.match(r'^[a-zA-Z\d]{0,9}$', data.get('custom_id')):
+    if not re.match(ONLY_DIGITS_AND_LETTERS, data.get('custom_id')):
         raise InvalidAPIUsage('Указано недопустимое имя для короткой ссылки', 400)
     urlmap = URLMap()
     urlmap.from_dict(data)
