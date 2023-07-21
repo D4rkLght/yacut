@@ -1,5 +1,8 @@
 # YaCut
 
+## Оглавление
+[Стек технологий](#Стек_технологий)
+
 ### Стек технологий
 [![Python](https://img.shields.io/badge/-Python-464641?style=flat-square&logo=Python)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
@@ -58,7 +61,6 @@ flask db upgrade
 
 ```
 flask run
-
 ```
 
 ## Над проектом работал:

@@ -9,5 +9,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 LENGHT_SHORT_LINK = 6
 ONLY_DIGITS_AND_LETTERS = r'^[a-zA-Z\d]{0,9}$'
+MAX_LENGHT_URL = 128
+MAX_LENGHT_SHORT_URL = 16
 
 from . import api_views, error_handlers, views
