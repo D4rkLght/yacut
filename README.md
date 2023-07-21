@@ -83,16 +83,14 @@ flask run
 ## Примеры запросов <a name="examples"></a>
 
 Пример пользовательского варианта короткой ссылки:
-```
-https://peps.python.org/pep-3150/#examples
-http://127.0.0.1:5000/Opr
-```
+
+Оригинальная ссылка - https://peps.python.org/pep-3150/#examples
+Короткая ссылка - http://127.0.0.1:5000/Opr
 
 Пример генерации сервиса короткой ссылки:
-```
-https://peps.python.org/pep-3150/#lack-of-real-world-impact-assessment
-http://127.0.0.1:5000/9HcXWG
-```
+
+Оригинальная ссылка - https://peps.python.org/pep-3150/#lack-of-real-world-impact-assessment
+Короткая ссылка -http://127.0.0.1:5000/9HcXWG
 
 ## Над проектом работал: <a name="author"></a>
 
