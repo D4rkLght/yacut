@@ -1,3 +1,4 @@
+![qrkot_spreadsheets_workflow](https://github.com/D4rkLght/yacut/actions/workflows/yacut.yml/badge.svg)
 # YaCut
 
 ## Оглавление
